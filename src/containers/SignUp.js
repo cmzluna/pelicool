@@ -16,12 +16,19 @@ export default function SignUp() {
   const dispatch = useDispatch();
   const email = useInput("email");
   const password = useInput("password");
+  const name = useInput("name");
 
   const user = useSelector((state) => state.user);
 
   function handleChange(e) {
     e.preventDefault();
-    dispatch(userSignUp({ email: email.value, password: password.value }));
+    dispatch(
+      userSignUp({
+        name: name.value,
+        email: email.value,
+        password: password.value,
+      })
+    );
 
     //  this.setState({ value: event.target.value });
   }
@@ -32,14 +39,24 @@ export default function SignUp() {
         <h2>Sign in to your account</h2>
       </div>
 
-      <form onSubmit={handleChange}>
+      <form onSubmit={handleChange} className="form-signup">
         {/* <input type="hidden" name="remember" value="true" /> */}
         <div>
-          <label>Username:</label>
           <input
             type="text"
             name="username"
-            placeholder="Email address"
+            placeholder="your full name"
+            value={name.value}
+            onChange={name.onChange}
+            required
+          />
+        </div>
+
+        <div>
+          <input
+            type="email"
+            name="username"
+            placeholder="your email address"
             value={email.value}
             onChange={email.onChange}
             required
@@ -47,18 +64,15 @@ export default function SignUp() {
         </div>
 
         <div>
-          <label>Password:</label>
           <input
             type="password"
             name="password"
+            placeholder="your password"
             onChange={password.onChange}
             value={password.value}
             required
           />
         </div>
-
-        <p>{password.value}</p>
-        <p>{email.value}</p>
 
         <div>
           <button type="submit">Log in</button>

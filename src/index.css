@@ -39,6 +39,13 @@ footer.the-footer {
   width: 80%;
   display: flex;
 }
+.movieDetailsContainer {
+  display: flex;
+  justify-content: center;
+}
+.movieDetailsBox {
+  margin: 2em;
+}
 
 .movie-app > .row {
   overflow-x: auto;
@@ -55,15 +62,35 @@ footer.the-footer {
   -webkit-overflow-scrolling: touch;
 }
 
+.form-signup {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+input,
+button {
+  padding: 1em;
+  border-radius: 0.7em;
+  margin: 0.5em;
+}
+
 .form-group {
   display: flex;
   justify-content: center;
 }
-
+.form-control {
+  border-radius: 0.4em;
+}
 .header {
   display: flex;
   justify-content: space-around;
   background-color: grey;
   border-radius: 0 0 3em 3em;
   padding: 0.4em;
+}
+
+a:link {
+  text-decoration: none;
 }

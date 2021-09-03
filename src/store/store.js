@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import userReducer from "./users";
 import moviesReducer from "./movies";
+import favoritesReducer from "./favorites";
 // import { composeWithDevTools } from "redux-devtools-extension";
 
 const store = configureStore({
@@ -9,6 +10,7 @@ const store = configureStore({
   reducer: {
     user: userReducer,
     movies: moviesReducer,
+    favorites: favoritesReducer,
   },
 });
 

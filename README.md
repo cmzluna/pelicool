@@ -2,6 +2,12 @@
 
 # 25 - OMDB
 
+===> seedear BD para que funcionen los Magic MEthods de SEquelize.
+usuario de login:
+
+mail : tom@hanks
+pass: tommy
+
 ### Must have.
 
 - Buscar películas y listarlas.

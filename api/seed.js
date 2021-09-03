@@ -15,7 +15,12 @@ const setupSeed = async () => {
   // CREATE Movie
   console.log("SEED movie");
   const moviePromise = Movie.create({
-    name: "Inception",
+    imdbID: "tt7158430",
+    Title: "El bar",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BNjY0YTcyYjEtNTlkZC00YTM5LTk3ZTQtMjEwM2U2YjdiMjI1XkEyXkFqcGdeQXVyMTY5OTQzNzY@._V1_SX300.jpg",
+    Type: "movie",
+    Year: "2017",
   });
 
   // CREATING USER

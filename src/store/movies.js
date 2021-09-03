@@ -1,4 +1,8 @@
-import { createReducer, createAction } from "@reduxjs/toolkit";
+import {
+  createReducer,
+  createAction,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
 import axios from "axios";
 
 // la accion define que es lo que va a pasar
@@ -11,7 +15,20 @@ import axios from "axios";
 //setAirports devuelve el TYPE al hacer toString
 export const addMoviesList = createAction("ADD_MOVIES_LIST");
 export const getMoviesList = createAction("GET_MOVIES_LIST");
-export const addSelectedMovie = createAction("ADD_SELECTED_MOVIE");
+
+// usar el imdbID para hacer otra busqueda
+export const addSelectedMovie = createAsyncThunk(
+  "ADD_SELECTED_MOVIE",
+  (movieID) => {
+    console.log("OBJ => ", movieID);
+    return axios
+      .get(`http://www.omdbapi.com/?apikey=1663c88f&i=${movieID}`)
+      .then((r) => r.data)
+      .catch((err) => console.log(err));
+
+    // return axios.post("/api/signup").then((r) => r.data);
+  }
+);
 
 // export const addMoviesList = createAsyncThunk("ADD_MOVIES_LIST", (obj) => {
 //   console.log("OBJ => ", obj);
@@ -34,13 +51,20 @@ export const addSelectedMovie = createAction("ADD_SELECTED_MOVIE");
 // );
 
 const moviesReducer = createReducer(
-  {},
+  {
+    moviesList: [],
+    selectedMovie: {},
+  },
   {
     [addMoviesList]: (state, action) => {
       return { ...state, moviesList: action.payload };
     },
     [getMoviesList]: (state, action) => {
       return state.movies;
+    },
+
+    [addSelectedMovie.fulfilled]: (state, action) => {
+      return { ...state, selectedMovie: action.payload };
     },
   }
 );

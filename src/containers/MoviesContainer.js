@@ -22,7 +22,7 @@ const MoviesContainer = (props) => {
   useEffect(() => {
     if (input !== "") {
       axios
-        .get(`https://www.omdbapi.com/?apikey=20dac387&s=${input}`)
+        .get(`https://www.omdbapi.com/?apikey=1663c88f&s=${input}`)
         .then((res) => {
           const [moviesList, totalResults] = [
             res.data.Search,

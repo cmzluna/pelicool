@@ -1,4 +1,8 @@
-import { createReducer, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  createReducer,
+  createAsyncThunk,
+  createAction,
+} from "@reduxjs/toolkit";
 import axios from "axios";
 
 // la accion define que es lo que va a pasar
@@ -9,11 +13,8 @@ import axios from "axios";
 // setAirports = { type: 'add', payload: ''}
 
 //setAirports devuelve el TYPE al hacer toString
+export const userLogin = createAction("USER_LOGIN");
 
-export const userLogin = createAsyncThunk("USER_LOGIN", (obj) => {
-  console.log("user => ", obj);
-  return axios.post("http://localhost:3001/api/login", obj).then((r) => r.data);
-});
 /* Ejemplo :
 
 function logOutUser() {
@@ -37,6 +38,7 @@ export const userSignUp = createAsyncThunk("USER_SIGNUP", (obj) => {
 });
 
 // hacer logout
+/*
 export const userLogout = createAsyncThunk("USER_LOGOUT", (obj) => {
   console.log("OBJ => ", obj);
   return axios
@@ -45,25 +47,10 @@ export const userLogout = createAsyncThunk("USER_LOGOUT", (obj) => {
     .catch((err) => console.log(err));
 
   // return axios.post("/api/signup").then((r) => r.data);
-});
+})
+*/
 
 // asi como el estado es manejado por Redux, el pedido tambien
-
-export const addToFavorites = createAsyncThunk(
-  "ADD_TO_FAVORITES",
-  (movie, thunkAPI) => {
-    const { user } = thunkAPI.getState();
-    if (!user.id) throw new Error("You need to be logged in");
-
-    console.log("MOVIE EN ASYNCTHUNK: ", movie);
-    return axios
-      .put(
-        `http://localhost:3001/api/favorites?userId=${user.id}&movieId=4` //${movie.imdbID}
-      )
-      .then(() => movie);
-  }
-  // como el id de la movie es tt8537030 tendre que buscar ID en OMDB ?
-);
 
 /* 
 1er PARAMETRO:
@@ -80,6 +67,7 @@ const store= thunkAPI.getState()
 trae TODO lo que haya en el estado del Store (no solamente de Users) 
 
  */
+/*
 export const removeFromFavorites = createAsyncThunk(
   "REMOVE_FROM_FAVORITES",
   (movieId, thunkAPI) => {
@@ -90,28 +78,25 @@ export const removeFromFavorites = createAsyncThunk(
       .then(() => movieId);
   }
 );
-
+*/
 const userReducer = createReducer(
   {
-    user: {},
     favorites: [],
   },
   {
-    [userLogin.fulfilled]: (state, action) => action.payload,
-    [userLogout.fulfilled]: (state, action) => {
-      state.user = {};
-      return state;
-    },
+    [userLogin]: (state, action) => action.payload,
+    // [userLogout.fulfilled]: (state, action) => {
+    //   state = {};
+    //   return state;
+    // },
     [userSignUp.fulfilled]: (state, action) => action.payload,
-    // [addUser.rejected]: (state, action) => action.payload,
-    [addToFavorites.fulfilled]: (state, action) => {
-      state.favorites.push(action.payload);
-    },
-    [removeFromFavorites.fulfilled]: (state, action) => {
-      state.favorites = state.favorites.filter(
-        (fav) => fav.id !== action.payload.id
-      );
-    },
+    // [addUser.rejected]: (state,  action) => action.payload,
+
+    // [removeFromFavorites.fulfilled]: (state, action) => {
+    //   state.favorites = state.favorites.filter(
+    //     (fav) => fav.id !== action.payload.id
+    //   );
+    // },
   }
 );
 

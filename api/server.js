@@ -1,7 +1,6 @@
 // server configs
 const express = require("express");
-
-//const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const sessions = require("express-session");
 const passport = require("passport");
@@ -21,8 +20,9 @@ app.use(sessions({ secret: "omdb", resave: true, saveUninitialized: true }));
 
 app.use(passport.initialize());
 app.use(passport.session()); // trabajamos con sesiones y vincula a express-session
-
 app.use(cors());
+app.use("/api", routes);
+//app.use(express.static(path.resolve(__dirname, "/public")));
 
 passport.use(
   new localStrategy(
@@ -63,14 +63,11 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (id, done) {
   User.findByPk(id) // busco el usuario
     .then((user) => {
-      done(null, user);
-    })
-    .catch(done);
+      return done(null, user);
+    });
+  //.catch(done);
 });
 // una vez que llegue un nuevo pedido que a traves de la sesion tengamos que recuperar el usuario
-
-app.use("/api", routes);
-app.use(express.static(path.resolve(__dirname, "/public")));
 
 db.sync({ force: false }).then(() => {
   app.listen(3001, () => {

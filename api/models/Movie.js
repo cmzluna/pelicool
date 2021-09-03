@@ -5,9 +5,27 @@ class Movie extends Sequelize.Model {}
 
 Movie.init(
   {
-    name: {
+    Title: {
       type: Sequelize.STRING,
-      //allowNull: false,
+      allowNull: false,
+    },
+    Poster: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    Type: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    Year: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    imdbID: {
+      type: Sequelize.STRING,
+      primaryKey: true,
+      unique: true,
+      allowNull: false,
     },
 
     //
