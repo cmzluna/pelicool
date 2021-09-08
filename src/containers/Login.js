@@ -37,18 +37,25 @@ export default function Login() {
     // history.push("/users/favs");
     //  this.setState({ value: event.target.value });
   }
-
+  /*
   useEffect(() => {
     if (user.id) {
+    
       console.log(user.id);
-      dispatch(getFavorites(user.id))
+    
+
+      dispatch(getProfile(user.id))
         .then((data) =>
           //message.success(`Success login: welcome back ${data.name}`)
           console.log(`Favorites loaded from BD into state`, data)
         )
         .catch((err) => console.log(err));
     } else return;
+
+
   }, [user.id]);
+
+      */
 
   return (
     <div>
