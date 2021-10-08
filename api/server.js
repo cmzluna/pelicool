@@ -69,9 +69,14 @@ passport.deserializeUser(function (id, done) {
 });
 // una vez que llegue un nuevo pedido que a traves de la sesion tengamos que recuperar el usuario
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
 db.sync({ force: false }).then(() => {
-  app.listen(3001, () => {
-    console.log("Servidor corriendo en el puerto 3001");
+  app.listen(port, () => {
+    console.log("Server running at port", port);
   });
 });
 
