@@ -94,3 +94,17 @@ button {
 a:link {
   text-decoration: none;
 }
+
+.form-container {
+  flex-direction: column;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
