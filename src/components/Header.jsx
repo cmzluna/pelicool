@@ -4,8 +4,11 @@ import SaveIcon from "@material-ui/icons/Save";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin, userSignUp, userLogout } from "../store/users";
-
+import Avatar from "@material-ui/core/Avatar";
+import Chip from "@material-ui/core/Chip";
+import FaceIcon from "@material-ui/icons/Face";
 import axios from "axios";
+
 export default () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -47,15 +50,17 @@ export default () => {
   return (
     <header>
       <div className="header">
-        <b>OMDB</b>
-
         <Link to="/movies">
-          <Button variant="outlined">Main page</Button>
+          <b>OMDB</b>
         </Link>
 
         {user.id ? (
-          <div>
-            <span>Welcome, {user.email} ! </span>
+          <div className="header-panel header-panel-loggedin">
+            <Chip
+              avatar={<Avatar>{user.name.slice(0, 1)}</Avatar>}
+              label={user.email}
+              variant="outlined"
+            />
 
             <Link to="/users/favs">
               <Button variant="outlined">My favorites</Button>
@@ -64,18 +69,16 @@ export default () => {
               {" "}
               Logout
             </Button>
-
-            <div onClick={() => handleLogout()}>Logout</div>
           </div>
         ) : (
-          <p>
+          <div className="header-panel header-panel-loggedoff">
             <Link to="/login">
               <Button variant="outlined">Login</Button>
             </Link>
             <Link to="/SignUp">
               <Button variant="outlined">Sign up</Button>
             </Link>
-          </p>
+          </div>
         )}
       </div>
       {/* <Button startIcon={<SaveIcon />} variant="contained" color="secondary">
