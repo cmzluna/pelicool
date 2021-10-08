@@ -74,6 +74,10 @@ if (port == null || port == "") {
   port = 8000;
 }
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("/build"));
+}
+
 db.sync({ force: false }).then(() => {
   app.listen(port, () => {
     console.log("Server running at port", port);
