@@ -31,10 +31,12 @@
     "sequelize": "^6.5.0"
   },
   "scripts": {
-    "start": "concurrently 'npm run server' 'npm run client'",
+    "start": "node api/server.js",
     "server": "nodemon api/server.js",
     "client": "react-scripts start",
     "build": "react-scripts build",
+    "install-client": "cd src && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "seed": "node api/seed"
   },
   "proxy": "http://localhost:3001",
