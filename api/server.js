@@ -75,9 +75,9 @@ if (port == null || port == "") {
 }
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("/build"));
-  app.get("/", function (request, response) {
-    response.send("Hello World!");
+  app.use(express.static("build"));
+  app.get("*", function (request, response) {
+    request.sendFile(path.resolve(__dirname, "build", "index.html"));
   });
 
   // app.get("*", (req, res) => {
