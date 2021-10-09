@@ -71,7 +71,7 @@ passport.deserializeUser(function (id, done) {
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 8000;
+  port = 5000;
 }
 
 if (process.env.NODE_ENV === "production") {
