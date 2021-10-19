@@ -36,8 +36,7 @@
     "server": "nodemon api/server.js",
     "client": "react-scripts start",
     "build": "react-scripts build",
-    "install-client": "cd src && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-postbuild": "cd src && npm install && npm run build",
     "seed": "node api/seed"
   },
   "eslintConfig": {
