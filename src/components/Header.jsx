@@ -51,7 +51,7 @@ export default () => {
     <header>
       <div className="header">
         <Link to="/movies">
-          <b>OMDB</b>
+          <img src="logo.png" width="120px" heitght="120px" alt="Logo" />
         </Link>
 
         {user.id ? (

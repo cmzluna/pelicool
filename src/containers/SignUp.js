@@ -34,7 +34,7 @@ export default function SignUp() {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <div>
         <h2>Sign in to your account</h2>
       </div>

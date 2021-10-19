@@ -86,14 +86,15 @@ button {
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: grey;
+  background-color: #ffffff;
   border-radius: 0 0 3em 3em;
   padding: 1em;
 }
 .header-panel {
   display: flex;
   justify-content: space-around;
-  background-color: grey;
+  align-items: center;
+  background-color: #ffffff;
 }
 
 .header-panel-loggedoff {
