@@ -26,4 +26,3 @@ pass: tommy
 - Search Users.
 - View a user's profile with their favorite movies.
 
-Para más información busquen en [Pledu](https://pledu.plataforma5.la/modules/e2b1ace6-8de6-4b10-a025-647583402a8a)
