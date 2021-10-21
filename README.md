@@ -1,29 +1,29 @@
 ![logop5](https://p5-hall-of-fame.s3.amazonaws.com/p5logo.png)
 
-# 25 - OMDB
+# Pelicool 
 
-===> seedear BD para que funcionen los Magic MEthods de SEquelize.
-usuario de login:
+Project made in one week during [Plataforma 5](https://plataforma5.la/) bootcamp's training.<br /> 
+Log in with this user:
 
 mail : tom@hanks
 pass: tommy
 
 ### Must have.
 
-- Buscar películas y listarlas.
-- Poder ver los detalles de una película en particular.
-- Crear Usuarios.
-- Loggearse y desloggearse con un usuario.
+- Search movies and list them.
+- Being able to see the details of a particular movie.
+- Create Users.
+- Logging in and out with a user.
 
 ### Should have.
 
-- Poder agregar una película a tu lista de favoritos.
-- Ver tu lista de películas favoritas.
-- Poder sacar películas de tu lista de favoritos.
+- Being able to add a movie to your favorites list.
+- View your list of favorite movies.
+- To be able to remove movies from your favorites list.
 
 ### Nice to have.
 
-- Buscar Usuarios.
-- Ver el perfil de un usuario con sus películas favoritas.
+- Search Users.
+- View a user's profile with their favorite movies.
 
 Para más información busquen en [Pledu](https://pledu.plataforma5.la/modules/e2b1ace6-8de6-4b10-a025-647583402a8a)
